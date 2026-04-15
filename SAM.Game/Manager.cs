@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2024 Rick (rick 'at' gibbed 'dot' us)
+/* Copyright (c) 2024 Rick (rick 'at' gibbed 'dot' us)
  *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -63,17 +63,17 @@ namespace SAM.Game
 
             this._StatisticsDataGridView.AutoGenerateColumns = false;
 
-            this._StatisticsDataGridView.Columns.Add("name", "Name");
+            this._StatisticsDataGridView.Columns.Add("name", "名称");
             this._StatisticsDataGridView.Columns[0].ReadOnly = true;
             this._StatisticsDataGridView.Columns[0].Width = 200;
             this._StatisticsDataGridView.Columns[0].DataPropertyName = "DisplayName";
 
-            this._StatisticsDataGridView.Columns.Add("value", "Value");
+            this._StatisticsDataGridView.Columns.Add("value", "数值");
             this._StatisticsDataGridView.Columns[1].ReadOnly = this._EnableStatsEditingCheckBox.Checked == false;
             this._StatisticsDataGridView.Columns[1].Width = 90;
             this._StatisticsDataGridView.Columns[1].DataPropertyName = "Value";
 
-            this._StatisticsDataGridView.Columns.Add("extra", "Extra");
+            this._StatisticsDataGridView.Columns.Add("extra", "额外");
             this._StatisticsDataGridView.Columns[2].ReadOnly = true;
             this._StatisticsDataGridView.Columns[2].Width = 200;
             this._StatisticsDataGridView.Columns[2].DataPropertyName = "Extra";
@@ -159,7 +159,7 @@ namespace SAM.Game
                 return;
             }
 
-            this._DownloadStatusLabel.Text = $"Downloading {this._IconQueue.Count} icons...";
+            this._DownloadStatusLabel.Text = $"正在下载 {this._IconQueue.Count} 个图标...";
             this._DownloadStatusLabel.Visible = true;
 
             var info = this._IconQueue[0];
@@ -173,7 +173,7 @@ namespace SAM.Game
 
         private static string TranslateError(int id) => id switch
         {
-            2 => "generic error -- this usually means you don't own the game",
+            2 => "通用错误 -- 这通常意味着你不拥有该游戏",
             _ => _($"{id}"),
         };
 
@@ -356,7 +356,7 @@ namespace SAM.Game
 
                     default:
                     {
-                        throw new InvalidOperationException("invalid stat type");
+                        throw new InvalidOperationException("不支持的统计信息类型");
                     }
                 }
             }
@@ -368,14 +368,14 @@ namespace SAM.Game
         {
             if (param.Result != 1)
             {
-                this._GameStatusLabel.Text = $"Error while retrieving stats: {TranslateError(param.Result)}";
+                this._GameStatusLabel.Text = $"检索统计信息时出错: {TranslateError(param.Result)}";
                 this.EnableInput();
                 return;
             }
 
             if (this.LoadUserGameStatsSchema() == false)
             {
-                this._GameStatusLabel.Text = "Failed to load schema.";
+                this._GameStatusLabel.Text = "加载模式失败。";
                 this.EnableInput();
                 return;
             }
@@ -386,11 +386,11 @@ namespace SAM.Game
             }
             catch (Exception e)
             {
-                this._GameStatusLabel.Text = "Error when handling achievements retrieval.";
+                this._GameStatusLabel.Text = "处理成就检索时出错。";
                 this.EnableInput();
                 MessageBox.Show(
-                    "Error when handling achievements retrieval:\n" + e,
-                    "Error",
+                    "处理成就检索时出错:\n" + e,
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -402,17 +402,17 @@ namespace SAM.Game
             }
             catch (Exception e)
             {
-                this._GameStatusLabel.Text = "Error when handling stats retrieval.";
+                this._GameStatusLabel.Text = "处理统计检索时出错。";
                 this.EnableInput();
                 MessageBox.Show(
-                    "Error when handling stats retrieval:\n" + e,
-                    "Error",
+                    "处理统计检索时出错:\n" + e,
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
             }
 
-            this._GameStatusLabel.Text = $"Retrieved {this._AchievementListView.Items.Count} achievements and {this._StatisticsDataGridView.Rows.Count} statistics.";
+            this._GameStatusLabel.Text = $"已检索 {this._AchievementListView.Items.Count} 个成就和 {this._StatisticsDataGridView.Rows.Count} 个统计信息。";
             this.EnableInput();
         }
 
@@ -428,11 +428,11 @@ namespace SAM.Game
             var callHandle = this._SteamClient.SteamUserStats.RequestUserStats(steamId);
             if (callHandle == API.CallHandle.Invalid)
             {
-                MessageBox.Show(this, "Failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "请求失败。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            this._GameStatusLabel.Text = "Retrieving stat information...";
+            this._GameStatusLabel.Text = "正在检索统计信息...";
             this.DisableInput();
         }
 
@@ -633,8 +633,8 @@ namespace SAM.Game
                 {
                     MessageBox.Show(
                         this,
-                        $"An error occurred while setting the state for {info.Id}, aborting store.",
-                        "Error",
+                        $"设置 {info.Id} 的状态时出错，存储操作中止。",
+                        "错误",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return -1;
@@ -667,8 +667,8 @@ namespace SAM.Game
                     {
                         MessageBox.Show(
                             this,
-                            $"An error occurred while setting the value for {stat.Id}, aborting store.",
-                            "Error",
+                            $"设置 {stat.Id} 的值时出错，存储操作中止。",
+                            "错误",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return -1;
@@ -682,8 +682,8 @@ namespace SAM.Game
                     {
                         MessageBox.Show(
                             this,
-                            $"An error occurred while setting the value for {stat.Id}, aborting store.",
-                            "Error",
+                            $"设置 {stat.Id} 的值时出错，存储操作中止。",
+                            "错误",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                         return -1;
@@ -691,7 +691,7 @@ namespace SAM.Game
                 }
                 else
                 {
-                    throw new InvalidOperationException("unsupported stat type");
+                    throw new InvalidOperationException("不支持的统计信息类型");
                 }
             }
 
@@ -752,8 +752,8 @@ namespace SAM.Game
             {
                 MessageBox.Show(
                     this,
-                    "An error occurred while storing, aborting.",
-                    "Error",
+                    "存储时出错，操作中止。",
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
@@ -786,8 +786,8 @@ namespace SAM.Game
 
             MessageBox.Show(
                 this,
-                $"Stored {achievements} achievements and {stats} statistics.",
-                "Information",
+                $"已存储 {achievements} 个成就和 {stats} 个统计信息。",
+                "信息",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             this.RefreshStats();
@@ -805,13 +805,13 @@ namespace SAM.Game
             {
                 e.ThrowException = false;
                 e.Cancel = true;
-                view.Rows[e.RowIndex].ErrorText = "Stat is protected! -- you can't modify it";
+                view.Rows[e.RowIndex].ErrorText = "统计信息受保护！-- 你无法修改它";
             }
             else
             {
                 e.ThrowException = false;
                 e.Cancel = true;
-                view.Rows[e.RowIndex].ErrorText = "Invalid value";
+                view.Rows[e.RowIndex].ErrorText = "无效的值";
             }
         }
 
@@ -829,8 +829,8 @@ namespace SAM.Game
         private void OnResetAllStats(object sender, EventArgs e)
         {
             if (MessageBox.Show(
-                "Are you absolutely sure you want to reset stats?",
-                "Warning",
+                "你确定要重置统计信息吗？",
+                "警告",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.No)
             {
@@ -838,14 +838,14 @@ namespace SAM.Game
             }
 
             bool achievementsToo = DialogResult.Yes == MessageBox.Show(
-                "Do you want to reset achievements too?",
-                "Question",
+                "你也想重置成就吗？",
+                "问题",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
             if (MessageBox.Show(
-                "Really really sure?",
-                "Warning",
+                "你真的确定吗？",
+                "警告",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Error) == DialogResult.No)
             {
@@ -854,7 +854,7 @@ namespace SAM.Game
 
             if (this._SteamClient.SteamUserStats.ResetAllStats(achievementsToo) == false)
             {
-                MessageBox.Show(this, "Failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "操作失败。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -882,8 +882,8 @@ namespace SAM.Game
             {
                 MessageBox.Show(
                     this,
-                    "Sorry, but this is a protected achievement and cannot be managed with Steam Achievement Manager.",
-                    "Error",
+                    "抱歉，但这是一个受保护的成就，无法使用 Steam Achievement Manager 管理。",
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 e.NewValue = e.CurrentValue;
