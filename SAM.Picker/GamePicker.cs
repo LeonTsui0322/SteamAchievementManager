@@ -98,7 +98,7 @@ namespace SAM.Picker
 
         private void DoDownloadList(object sender, DoWorkEventArgs e)
         {
-            this._PickerStatusLabel.Text = "Downloading game list...";
+            this._PickerStatusLabel.Text = "正在下载游戏列表...";
 
             byte[] bytes;
             using (WebClient downloader = new())
@@ -123,7 +123,7 @@ namespace SAM.Picker
                 }
             }
 
-            this._PickerStatusLabel.Text = "Checking game ownership...";
+            this._PickerStatusLabel.Text = "正在检查游戏所有权...";
             foreach (var kv in pairs)
             {
                 this.AddGame(kv.Key, kv.Value);
@@ -135,7 +135,7 @@ namespace SAM.Picker
             if (e.Error != null || e.Cancelled == true)
             {
                 this.AddDefaultGames();
-                MessageBox.Show(e.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Error.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             this.RefreshGames();
@@ -181,7 +181,7 @@ namespace SAM.Picker
 
             this._GameListView.VirtualListSize = this._FilteredGames.Count;
             this._PickerStatusLabel.Text =
-                $"Displaying {this._GameListView.Items.Count} games. Total {this._Games.Count} games.";
+                $"正在显示 {this._GameListView.Items.Count} 个游戏。总共 {this._Games.Count} 个游戏。";
 
             if (this._GameListView.Items.Count > 0)
             {
@@ -328,7 +328,7 @@ namespace SAM.Picker
                     break;
                 }
 
-                this._DownloadStatusLabel.Text = $"Downloading {1 + this._LogoQueue.Count} game icons...";
+                this._DownloadStatusLabel.Text = $"正在下载 {1 + this._LogoQueue.Count} 个游戏图标...";
                 this._DownloadStatusLabel.Visible = true;
 
                 this._LogoWorker.RunWorkerAsync(info);
@@ -458,8 +458,8 @@ namespace SAM.Picker
             {
                 MessageBox.Show(
                     this,
-                    "Failed to start SAM.Game.exe.",
-                    "Error",
+                    "无法启动 SAM.Game.exe。",
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
@@ -479,8 +479,8 @@ namespace SAM.Picker
             {
                 MessageBox.Show(
                     this,
-                    "Please enter a valid game ID.",
-                    "Error",
+                    "请输入有效的游戏 ID。",
+                    "错误",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return;
@@ -488,7 +488,7 @@ namespace SAM.Picker
 
             if (this.OwnsGame(id) == false)
             {
-                MessageBox.Show(this, "You don't own that game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "你未拥有该游戏。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
