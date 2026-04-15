@@ -1,4 +1,4 @@
-﻿namespace SAM.Game
+namespace SAM.Game
 {
     partial class Manager
     {
@@ -100,8 +100,8 @@
             this._StoreButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._StoreButton.Name = "_StoreButton";
             this._StoreButton.Size = new System.Drawing.Size(120, 22);
-            this._StoreButton.Text = "Commit Changes";
-            this._StoreButton.ToolTipText = "Store achievements and statistics for active game.";
+            this._StoreButton.Text = "提交更改";
+            this._StoreButton.ToolTipText = "保存当前游戏的成就和统计数据。";
             this._StoreButton.Click += new System.EventHandler(this.OnStore);
             // 
             // _ReloadButton
@@ -111,8 +111,8 @@
             this._ReloadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._ReloadButton.Name = "_ReloadButton";
             this._ReloadButton.Size = new System.Drawing.Size(66, 22);
-            this._ReloadButton.Text = "Refresh";
-            this._ReloadButton.ToolTipText = "Refresh achievements and statistics for active game.";
+            this._ReloadButton.Text = "刷新";
+            this._ReloadButton.ToolTipText = "刷新当前游戏的成就和统计数据。";
             this._ReloadButton.Click += new System.EventHandler(this.OnRefresh);
             // 
             // _ResetButton
@@ -121,8 +121,8 @@
             this._ResetButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._ResetButton.Name = "_ResetButton";
             this._ResetButton.Size = new System.Drawing.Size(55, 22);
-            this._ResetButton.Text = "Reset";
-            this._ResetButton.ToolTipText = "Reset achievements and/or statistics for active game.";
+            this._ResetButton.Text = "重置";
+            this._ResetButton.ToolTipText = "重置当前游戏的成就和统计数据。";
             this._ResetButton.Click += new System.EventHandler(this.OnResetAllStats);
             // 
             // _AchievementImageList
@@ -159,7 +159,7 @@
             this._DownloadStatusLabel.Image = global::SAM.Game.Resources.Download;
             this._DownloadStatusLabel.Name = "_DownloadStatusLabel";
             this._DownloadStatusLabel.Size = new System.Drawing.Size(111, 17);
-            this._DownloadStatusLabel.Text = "Download status";
+            this._DownloadStatusLabel.Text = "下载状态";
             this._DownloadStatusLabel.Visible = false;
             // 
             // _CallbackTimer
@@ -189,7 +189,7 @@
             this._AchievementsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this._AchievementsTabPage.Size = new System.Drawing.Size(688, 308);
             this._AchievementsTabPage.TabIndex = 0;
-            this._AchievementsTabPage.Text = "Achievements";
+            this._AchievementsTabPage.Text = "成就";
             this._AchievementsTabPage.UseVisualStyleBackColor = true;
             // 
             // _AchievementListView
@@ -220,17 +220,17 @@
             // 
             // _AchievementNameColumnHeader
             // 
-            this._AchievementNameColumnHeader.Text = "Name";
+            this._AchievementNameColumnHeader.Text = "名称";
             this._AchievementNameColumnHeader.Width = 200;
             // 
             // _AchievementDescriptionColumnHeader
             // 
-            this._AchievementDescriptionColumnHeader.Text = "Description";
+            this._AchievementDescriptionColumnHeader.Text = "描述";
             this._AchievementDescriptionColumnHeader.Width = 300;
             // 
             // _AchievementUnlockTimeColumnHeader
             // 
-            this._AchievementUnlockTimeColumnHeader.Text = "Unlock Time";
+            this._AchievementUnlockTimeColumnHeader.Text = "解锁时间";
             this._AchievementUnlockTimeColumnHeader.Width = 160;
             // 
             // _AchievementsToolStrip
@@ -258,8 +258,8 @@
             this._LockAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._LockAllButton.Name = "_LockAllButton";
             this._LockAllButton.Size = new System.Drawing.Size(23, 22);
-            this._LockAllButton.Text = "Lock All";
-            this._LockAllButton.ToolTipText = "Lock all achievements.";
+            this._LockAllButton.Text = "锁定所有";
+            this._LockAllButton.ToolTipText = "锁定所有成就。";
             this._LockAllButton.Click += new System.EventHandler(this.OnLockAll);
             // 
             // _InvertAllButton
@@ -269,8 +269,8 @@
             this._InvertAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._InvertAllButton.Name = "_InvertAllButton";
             this._InvertAllButton.Size = new System.Drawing.Size(23, 22);
-            this._InvertAllButton.Text = "Invert All";
-            this._InvertAllButton.ToolTipText = "Invert all achievements.";
+            this._InvertAllButton.Text = "反转所有";
+            this._InvertAllButton.ToolTipText = "反转所有成就。";
             this._InvertAllButton.Click += new System.EventHandler(this.OnInvertAll);
             // 
             // _UnlockAllButton
@@ -280,8 +280,8 @@
             this._UnlockAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._UnlockAllButton.Name = "_UnlockAllButton";
             this._UnlockAllButton.Size = new System.Drawing.Size(23, 22);
-            this._UnlockAllButton.Text = "Unlock All";
-            this._UnlockAllButton.ToolTipText = "Unlock all achievements.";
+            this._UnlockAllButton.Text = "解锁所有";
+            this._UnlockAllButton.ToolTipText = "解锁所有成就。";
             this._UnlockAllButton.Click += new System.EventHandler(this.OnUnlockAll);
             // 
             // _DisplayLabel
@@ -289,7 +289,7 @@
             this._DisplayLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._DisplayLabel.Name = "_DisplayLabel";
             this._DisplayLabel.Size = new System.Drawing.Size(62, 22);
-            this._DisplayLabel.Text = "Show only";
+            this._DisplayLabel.Text = "仅显示";
             // 
             // _DisplayLockedOnlyButton
             // 
@@ -298,7 +298,7 @@
             this._DisplayLockedOnlyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._DisplayLockedOnlyButton.Name = "_DisplayLockedOnlyButton";
             this._DisplayLockedOnlyButton.Size = new System.Drawing.Size(46, 22);
-            this._DisplayLockedOnlyButton.Text = "locked";
+            this._DisplayLockedOnlyButton.Text = "已锁定";
             this._DisplayLockedOnlyButton.Click += new System.EventHandler(this.OnDisplayCheckedOnly);
             // 
             // _DisplayUnlockedOnlyButton
@@ -308,7 +308,7 @@
             this._DisplayUnlockedOnlyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._DisplayUnlockedOnlyButton.Name = "_DisplayUnlockedOnlyButton";
             this._DisplayUnlockedOnlyButton.Size = new System.Drawing.Size(60, 22);
-            this._DisplayUnlockedOnlyButton.Text = "unlocked";
+            this._DisplayUnlockedOnlyButton.Text = "已解锁";
             this._DisplayUnlockedOnlyButton.Click += new System.EventHandler(this.OnDisplayUncheckedOnly);
             // 
             // _MatchingStringLabel
@@ -316,14 +316,14 @@
             this._MatchingStringLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._MatchingStringLabel.Name = "_MatchingStringLabel";
             this._MatchingStringLabel.Size = new System.Drawing.Size(33, 22);
-            this._MatchingStringLabel.Text = "Filter";
+            this._MatchingStringLabel.Text = "筛选";
             // 
             // _MatchingStringTextBox
             // 
             this._MatchingStringTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this._MatchingStringTextBox.Name = "_MatchingStringTextBox";
             this._MatchingStringTextBox.Size = new System.Drawing.Size(100, 25);
-            this._MatchingStringTextBox.ToolTipText = "Type at least 3 characters that must appear in the name or description";
+            this._MatchingStringTextBox.ToolTipText = "输入至少3个字符，这些字符必须出现在名称或描述中";
             this._MatchingStringTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OnFilterUpdate);
             // 
             // _StatisticsTabPage
@@ -335,7 +335,7 @@
             this._StatisticsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this._StatisticsTabPage.Size = new System.Drawing.Size(688, 308);
             this._StatisticsTabPage.TabIndex = 1;
-            this._StatisticsTabPage.Text = "Statistics";
+            this._StatisticsTabPage.Text = "统计";
             this._StatisticsTabPage.UseVisualStyleBackColor = true;
             // 
             // _EnableStatsEditingCheckBox
@@ -347,8 +347,7 @@
             this._EnableStatsEditingCheckBox.Name = "_EnableStatsEditingCheckBox";
             this._EnableStatsEditingCheckBox.Size = new System.Drawing.Size(512, 17);
             this._EnableStatsEditingCheckBox.TabIndex = 1;
-            this._EnableStatsEditingCheckBox.Text = "I understand by modifying the values of stats, I may screw things up and can\'t bl" +
-    "ame anyone but myself.";
+            this._EnableStatsEditingCheckBox.Text = "我已了解修改统计数据的数值可能会导致问题，出现任何后果将自行承担。";
             this._EnableStatsEditingCheckBox.UseVisualStyleBackColor = true;
             this._EnableStatsEditingCheckBox.CheckedChanged += new System.EventHandler(this.OnStatAgreementChecked);
             // 
@@ -378,7 +377,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(640, 50);
             this.Name = "Manager";
-            this.Text = "Steam Achievement Manager 7.0";
+            this.Text = "Steam Achievement Manager 7.0  steam成就管理器 汉化：Leon";
             this._MainToolStrip.ResumeLayout(false);
             this._MainToolStrip.PerformLayout();
             this._MainStatusStrip.ResumeLayout(false);
